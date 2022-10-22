@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Blog extends Model{};
@@ -12,23 +12,26 @@ Blog.init(
 
         },  
         userName:{
-            type:Datatypes.VARCHAR,
-            allowNull: false
+            type:DataTypes.STRING,
+            references: {
+                model: 'user',
+                key: 'userName',
+              },
         },
         title:{
-            type:Datatypes.STRING,
+            type:DataTypes.STRING,
             allowNull: false
         },
         content:{
-            type:Datatypes.STRING,
+            type:DataTypes.STRING,
             allowNull: false
         },
         dateCreated:{
-            type:Datatypes.DATE,
+            type:DataTypes.DATE,
             allowNull: false
         },
         comment:{
-            type:Datatypes.VARCHAR,
+            type:DataTypes.STRING,
             allowNull: true
         },
     },
