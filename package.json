@@ -1,7 +1,11 @@
 {
+  "script": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
+    "mysql2": "^2.3.3",
     "prettier": "^2.7.1",
     "sequelize": "^6.25.3"
   }
