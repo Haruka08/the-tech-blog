@@ -1,7 +1,7 @@
 const { Model, Datatypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-Class User extends Model{};
+class Blog extends Model{};
 
 Blog.init(
     {
@@ -24,13 +24,21 @@ Blog.init(
             allowNull: false
         },
         dateCreated:{
-            type:Datatypes.,
+            type:Datatypes.DATE,
             allowNull: false
         },
         comment:{
             type:Datatypes.VARCHAR,
             allowNull: true
         },
-
-    }
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'blog',
+      }
 )
+
+module.exports = Blog;
