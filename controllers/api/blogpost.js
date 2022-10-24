@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const { User, Blog } = require('../../models');
+const { User, Blog, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
-
 
 // POST a new blog post - add WithAuth
 router.post('/blogpost', async (req, res) => {
@@ -39,3 +38,5 @@ router.post('/blogpost', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  module.exports = router;
