@@ -6,15 +6,14 @@ router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll();
 
-    // const blogs = blogData.map((blog) =>
-    //   blog.get({ plain: true })
-    // );
-    // // Send over the 'loggedIn' session variable to the 'homepage' template
-    // res.render('homepage', {
-    //   blogs,
-    // });
+    const blogs = blogData.map((blog) =>
+      blog.get({ plain: true })
+    );
+    // Send over the 'loggedIn' session variable to the 'homepage' template
+    res.render('homepage', {
+      blogs,
+    });
 
-    res.status(200).json(blogData)
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -37,7 +36,7 @@ router.post('/register', async (req, res) => {
 });
 
 // Login
-router.post('/login', async (req, res) => {
+router.get('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
@@ -65,9 +64,10 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
 
-      res
-        .status(200)
-        .json({ user: userData, message: 'You are now logged in!' });
+      res.render('login')
+      // res
+      //   .status(200)
+      //   .json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
     console.log(err);
