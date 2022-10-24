@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     });
 
     const blogs = blogData.map((blog) =>
-      blogs.get({ plain: true })
+      blog.get({ plain: true })
     );
     // Send over the 'loggedIn' session variable to the 'homepage' template
     res.render('homepage', {
