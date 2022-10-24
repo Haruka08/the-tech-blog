@@ -1,5 +1,21 @@
 body {
-    background-color:rgb(181, 246, 224);
-  }
+    background-color:rgb(195, 228, 185);
+    color:rgb(35, 24, 18);
+}
 
+/* blog post card */
+.card-body {
+    background-color:rgb(195, 228, 185);
+    color:rgb(35, 24, 18);
+}
 
+.banner {
+    background-color:rgb(35, 24, 18);
+    color: rgb(195, 228, 185);
+}
+
+.badge {
+    background-color:rgb(195, 228, 185);
+    color:rgb(35, 24, 18);
+    box-shadow: 10pc;
+}
