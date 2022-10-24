@@ -12,13 +12,13 @@ User.init(
             primaryKey: true
 
         },
-        userName:{
-            type:DataTypes.STRING,
+        user_name:{
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true
         },
         password:{
-            type:DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [8]

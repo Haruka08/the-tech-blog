@@ -11,27 +11,27 @@ Blog.init(
             primaryKey: true
 
         },  
-        userName:{
-            type:DataTypes.STRING,
+        user_name:{
+            type: DataTypes.STRING,
             references: {
                 model: 'user',
-                key: 'userName',
+                key: 'user_name',
               },
         },
         title:{
-            type:DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         content:{
-            type:DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         dateCreated:{
-            type:DataTypes.DATE,
+            type: DataTypes.DATE,
             allowNull: false
         },
         comment:{
-            type:DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: true
         },
     },
