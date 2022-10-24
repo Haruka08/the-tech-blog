@@ -1,45 +1,35 @@
 const router = require('express').Router();
 const { User, Blog } = require('../models');
 
-// GET all blog posts for homepage
+// GET all blog posts for homepage - Unable to Render
 router.get('/', async (req, res) => {
   try {
-    const blogData = await Blog.findAll({
-      // include: [
-      //   {
-      //     model: User,
-      //     attributes: ['user_name'],
-      //   },
-      // ],
-    });
+    const blogData = await Blog.findAll();
 
-    const blogs = blogData.map((blog) =>
-      blog.get({ plain: true })
-    );
-    // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render('homepage', {
-      blogs,
-    });
+    // const blogs = blogData.map((blog) =>
+    //   blog.get({ plain: true })
+    // );
+    // // Send over the 'loggedIn' session variable to the 'homepage' template
+    // res.render('homepage', {
+    //   blogs,
+    // });
+
+    res.status(200).json(blogData)
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-// CREATE new user
-router.post('/login', async (req, res) => {
+// CREATE new user WORKING
+router.post('/register', async (req, res) => {
   try {
     const newUser = await User.create({
       user_name: req.body.user_name,
       password: req.body.password
     });
 
-    // Set up sessions with a 'loggedIn' variable set to `true`
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res.status(200).json(newUser);
-    });
+    res.status(200).json(newUser)
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -58,7 +48,7 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: 'Incorrect email. Please try again!' });
       return;
     }
 
@@ -67,7 +57,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: 'Incorrect password. Please try again!' });
       return;
     }
 
