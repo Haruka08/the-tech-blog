@@ -1,4 +1,31 @@
+   {{#each blogs as |blog| }}
+   
     <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3">
+        <div class="d-flex justify-content-between card-header navbar">
+            <div>
+                {{{blog.title}}}
+            </div>
+            <div>
+                {{{blog.user_name}}}    
+                {{{blog.date_created}}}  
+            </div>
+        </div>
+        <div class="card-body body">
+          <blockquote class="blockquote mb-0">
+            <p>{{{blog.content}}}</p>
+          </blockquote>
+        </div>
+    </div>
+    
+    {{/each}}
+
+
+
+
+
+
+
+    {{!-- <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3">
         <div class="d-flex justify-content-between card-header navbar">
             <div>
                 post
@@ -27,19 +54,4 @@
             <p>A well-known quote, contained in a blockquote element.</p>
           </blockquote>
         </div>
-    </div>
-    <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3">
-        <div class="d-flex justify-content-between card-header navbar">
-            <div>
-                post
-            </div>
-            <div>
-                post
-            </div>
-        </div>
-        <div class="card-body body">
-          <blockquote class="blockquote mb-0">
-            <p>A well-known quote, contained in a blockquote element.</p>
-          </blockquote>
-        </div>
-    </div>
+    </div> --}}
