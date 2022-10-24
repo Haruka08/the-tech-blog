@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['userName'],
+          attributes: ['user_name'],
         },
       ],
     });
@@ -30,9 +30,8 @@ router.get('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const newUser = await User.create({
-      userName: req.body.userName,
-      email: req.body.email,
-      password: req.body.password,
+      user_name: req.body.user_name,
+      password: req.body.password
     });
 
     // Set up sessions with a 'loggedIn' variable set to `true`
@@ -52,7 +51,7 @@ router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
-        email: req.body.email,
+        user_name: req.body.user_name,
       },
     });
 
