@@ -5,12 +5,12 @@ const { User, Blog } = require('../models');
 router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['user_name'],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['user_name'],
+      //   },
+      // ],
     });
 
     const blogs = blogData.map((blog) =>
@@ -85,16 +85,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout
-router.post('/logout', (req, res) => {
-  // When the user logs out, destroy the session
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+
 
 module.exports = router;
