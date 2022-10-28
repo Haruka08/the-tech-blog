@@ -2,16 +2,19 @@ const commentBlog = async (event) => {
     // Stop the browser from submitting the form so we can do so with JavaScript
     event.preventDefault();
 
-    const response = await fetch('/blogpost', {
+  const comment = document.querySelector("#exampleFormControlTextarea1").value
+  const id = document.querySelector("#post_id").value
+
+    const response = await fetch('/comment', {
         method: 'POST',
-        body: JSON.stringify({ comment }),
+        body: JSON.stringify({ comment, id }),
         headers: { 'Content-Type': 'application/json' },
       });
 
     if(response.ok){
         alert("Successfully submitted new comment")
     } else {
-        alert("New comment submission failed")
+        alert("New comment submission failed")  
     }
   };
   

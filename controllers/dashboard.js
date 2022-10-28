@@ -11,7 +11,8 @@ router.get('/', async (req, res) => {
     );
     // Send over the 'loggedIn' session variable to the 'homepage' template
     res.render('homepage', {
-      blogs
+      blogs,
+      login: req.session.loggedIn
     });
 
   } catch (err) {

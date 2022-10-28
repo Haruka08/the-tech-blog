@@ -4,7 +4,7 @@ const postBlog = async (event) => {
 
     const response = await fetch('/blogpost', {
         method: 'POST',
-        body: JSON.stringify({ content }),
+        body: JSON.stringify({ title, content, user_name }),
         headers: { 'Content-Type': 'application/json' },
       });
 

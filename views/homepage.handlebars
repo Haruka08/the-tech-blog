@@ -1,57 +1,21 @@
-   {{#each blogs as |blog| }}
-   
-    <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3">
-        <div class="d-flex justify-content-between card-header navbar">
-            <div>
-                {{{blog.title}}}
-            </div>
-            <div>
-                {{{blog.user_name}}}    
-                {{{blog.date_created}}}  
-            </div>
+{{#each blogs as |blog| }}
+
+  <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container">
+    <div class="d-flex justify-content-between card-header navbar blog-title">
+        <div>
+            {{{blog.blog_id}}}
+            {{{blog.title}}}
         </div>
-        <div class="card-body body">
-          <blockquote class="blockquote mb-0">
-            <p>{{{blog.content}}}</p>
-          </blockquote>
+        <div>
+            {{{blog.user_name}}}    
+            {{{blog.timestamps}}}  
         </div>
     </div>
-    
-    {{/each}}
-
-
-
-
-
-
-
-    {{!-- <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3">
-        <div class="d-flex justify-content-between card-header navbar">
-            <div>
-                post
-            </div>
-            <div>
-                post
-            </div>
-        </div>
-        <div class="card-body body">
-          <blockquote class="blockquote mb-0">
-            <p>A well-known quote, contained in a blockquote element.</p>
-          </blockquote>
-        </div>
+    <div class="card-body body blog-content">
+      <blockquote class="blockquote mb-0">
+        <p>{{{blog.content}}}</p>
+      </blockquote>
     </div>
-    <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3">
-        <div class="d-flex justify-content-between card-header navbar">
-            <div>
-                post
-            </div>
-            <div>
-                post
-            </div>
-        </div>
-        <div class="card-body body">
-          <blockquote class="blockquote mb-0">
-            <p>A well-known quote, contained in a blockquote element.</p>
-          </blockquote>
-        </div>
-    </div> --}}
+  </div>
+  
+{{/each}}

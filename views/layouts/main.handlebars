@@ -6,33 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tech Blog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../public/css/style.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-light navbar">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">login/logout</a>
-                    </li>
-                </ul>
-            </div>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" href="#">Home</a>
+            {{#if login}}
+            <a class="nav-link" href="#">dashboard</a>
+            <a class="nav-link" href="#"> logout</a>
+            {{else}}
+            <a class="nav-link" href="#">login</a>
+            <a class="nav-link" href="#">Register</a>
+            {{/if}}
         </div>
-    </nav>
-
-    <div class="d-block p-4 ms-3 bg-light body">
-        <header class="badge text-wrap fs-2 rounded shadow"style="width: 16rem;">
-            The Tech Blog
-        </header>
+        </div>
     </div>
+  </nav>
+
+  <nav class="navbar">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">The Tech Blog</span>
+    </div>
+  </nav>
 
         {{{ body }}}
 
