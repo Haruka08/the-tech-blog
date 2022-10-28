@@ -21,4 +21,42 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/blog', async (req, res) => {
+  try {
+    const blogData = await Blog.findAll();
+
+    const blogs = blogData.map((blog) =>
+      blog.get({ plain: true })
+    );
+    // Send over the 'loggedIn' session variable to the 'homepage' template
+    res.render('blog', {
+      blogs,
+      login: req.session.loggedIn
+    });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.post('/comment', async (req, res) => {
+  try {
+    const blogData = await Blog.create();
+
+    const blogs = blogData.map((blog) =>
+      blog.get({ plain: true })
+    );
+    // Send over the 'loggedIn' session variable to the 'homepage' template
+    res.render('comment', {
+      blogs,
+      login: req.session.loggedIn
+    });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
