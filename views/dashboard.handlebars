@@ -2,13 +2,26 @@
   
 <div class="list-group">
 
-  <a href="/api/blog/all" class="list-group-item list-group-item-secondary" aria-current="true">
+  <a class="list-group-item list-group-item-secondary" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{{blog.title}}}</h5>
       <small>{{{blog.createdAt}}} </small>
     </div>
   </a>
 
+</div>
+
+{{!-- comment section - display when  --}}
+<div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container" id="comment{{blog.id}}">
+  <form class="row g-3 comment-form">
+    <div class="col-md-12">
+      <label for="inputEmail4" class="form-label">Comment</label>
+      <input type="text" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-secondary">Submit</button>
+    </div>
+  </form>
 </div>
 
 {{/each}}
