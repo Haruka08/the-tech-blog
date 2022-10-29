@@ -5,7 +5,7 @@ const commentBlog = async (event) => {
   const comment = document.querySelector("#exampleFormControlTextarea1").value
   const id = document.querySelector("#post_id").value
 
-    const response = await fetch('/api/comment/new', {
+    const response = await fetch('/dashboard/comment/new', {
         method: 'POST',
         body: JSON.stringify({ comment, id }),
         headers: { 'Content-Type': 'application/json' },
@@ -19,5 +19,5 @@ const commentBlog = async (event) => {
   };
   
   document
-    .querySelector('.blog-comment')
+    .querySelector('.comment-form')
     .addEventListener('submit', commentBlog);

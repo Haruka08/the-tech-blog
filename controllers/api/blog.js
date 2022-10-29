@@ -17,35 +17,6 @@ router.post('/blog/new', async (req, res) => {
     }
 });
   
-// // GET blogs posted by a user
-// router.get('/user', async (req, res) => {
-//     try {
-//       const blog = await Blog.findAll({
-//           where:{
-//             user_name: req.session.user_name
-//           }
-//       })
-  
-//       res.status(200).json(blog)
-//     }catch (err) {
-//       console.log(err);
-//       res.status(500).json(err);
-//     }
-// });
-
-// // GET blogs posted by a user
-// router.get('/', async (req, res) => {
-//   try {
-//     const blog = await Blog.findAll()
-
-//     res.status(200).json(blog)
-//   }catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
-
 //UPDATE a blog
 router.put('/update', async (req, res) => {
     try{
@@ -85,3 +56,33 @@ try {
 });
   
   module.exports = router;
+
+
+
+  // // GET blogs posted by a user
+// router.get('/user', async (req, res) => {
+//     try {
+//       const blog = await Blog.findAll({
+//           where:{
+//             user_name: req.session.user_name
+//           }
+//       })
+  
+//       res.status(200).json(blog)
+//     }catch (err) {
+//       console.log(err);
+//       res.status(500).json(err);
+//     }
+// });
+
+// // GET blogs posted by a user
+// router.get('/', async (req, res) => {
+//   try {
+//     const blog = await Blog.findAll()
+
+//     res.status(200).json(blog)
+//   }catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
