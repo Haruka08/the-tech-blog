@@ -2,20 +2,20 @@ const router = require('express').Router();
 const { User, Blog, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// // CREATE a new blog post - add WithAuth
-// router.post('/new', async (req, res) => {
-//     try {
-//       const newBlog = await Blog.create({
-//           ...req.body,
-//           user_name: req.session.user_name,
-//       })
+// CREATE a new blog post - add WithAuth
+router.post('/blog/new', async (req, res) => {
+    try {
+      const newBlog = await Blog.create({
+          ...req.body,
+          user_name: req.session.user_name,
+      })
   
-//       res.status(200).json(newBlog)
-//     }catch (err) {
-//       console.log(err);
-//       res.status(500).json(err);
-//     }
-// });
+      res.status(200).json(newBlog)
+    }catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+});
   
 // // GET blogs posted by a user
 // router.get('/user', async (req, res) => {

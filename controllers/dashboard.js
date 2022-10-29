@@ -43,17 +43,10 @@ router.get('/user', async (req, res) => {
   }
 });
 
-router.post('/comment', async (req, res) => {
+router.get('/blog/new', async (req, res) => {
   try {
-    const comments = await Comment.create({
-      comment: req.body.comment
-    });
-
     // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render('comment', {
-      comments,
-      login: req.session.loggedIn
-    });
+    res.render('blog');
 
   } catch (err) {
     console.log(err);
@@ -61,25 +54,54 @@ router.post('/comment', async (req, res) => {
   }
 });
 
-router.post('/new', async (req, res) => {
-  try {
-    const blogData = await Blog.create({
-      user_name: req.session.user_name,
-      title: req.body.title,
-      content: req.body.content
-    });
+router.get('/comment/new', async (req, res) => {
+    try {
+      // Send over the 'loggedIn' session variable to the 'homepage' template
+      res.render('comment');
+  
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+  
 
-    // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render('blog', {
-      blogData,
-      login: req.session.loggedIn
-    });
+// router.post('/comment', async (req, res) => {
+//   try {
+//     const comments = await Comment.create({
+//       comment: req.body.comment
+//     });
 
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     // Send over the 'loggedIn' session variable to the 'homepage' template
+//     res.render('comment', {
+//       comments,
+//       login: req.session.loggedIn
+//     });
 
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
+// router.post('/api/blog/new', async (req, res) => {
+//   try {
+//     const blogData = await Blog.create({
+//       user_name: req.session.user_name,
+//       title: req.body.title,
+//       content: req.body.content
+//     });
+
+//     // Send over the 'loggedIn' session variable to the 'homepage' template
+//     res.render('blog', {
+//       blogData,
+//       login: req.session.loggedIn
+//     });
+
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;

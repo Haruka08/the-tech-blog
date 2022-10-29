@@ -2,7 +2,7 @@ const postBlog = async (event) => {
     // Stop the browser from submitting the form so we can do so with JavaScript
     event.preventDefault();
 
-    const response = await fetch('/dashboard/new', {
+    const response = await fetch('/blog/new', {
         method: 'POST',
         body: JSON.stringify({ title, content}),
         headers: { 'Content-Type': 'application/json' },

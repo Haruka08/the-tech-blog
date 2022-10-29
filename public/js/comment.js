@@ -5,7 +5,7 @@ const commentBlog = async (event) => {
   const comment = document.querySelector("#exampleFormControlTextarea1").value
   const id = document.querySelector("#post_id").value
 
-    const response = await fetch('/comment', {
+    const response = await fetch('/api/comment/new', {
         method: 'POST',
         body: JSON.stringify({ comment, id }),
         headers: { 'Content-Type': 'application/json' },
