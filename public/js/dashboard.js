@@ -12,22 +12,22 @@ const userPost = async (event) => {
       }
   };
   
-const newPost = async (event) => {
-  // Stop the browser from submitting the form so we can do so with JavaScript
-  event.preventDefault();
+// const newPost = async (event) => {
+//   // Stop the browser from submitting the form so we can do so with JavaScript
+//   event.preventDefault();
 
-  const response = await fetch('/api/blog/new', {
-      method: 'POST',
-      body: JSON.stringify({ title, content}),
-      headers: { 'Content-Type': 'application/json' },
-    });
+//   const response = await fetch('/api/blog/new', {
+//       method: 'POST',
+//       body: JSON.stringify({ title, content}),
+//       headers: { 'Content-Type': 'application/json' },
+//     });
 
-  if(response.ok){
-    document.location.replace('/dashboard');
-  } else {
-      alert("New blog post submission failed")
-  }
-};
+//   if(response.ok){
+//     document.location.replace('/dashboard');
+//   } else {
+//       alert("New blog post submission failed")
+//   }
+// };
 
   document
   .querySelector('.dashboard')
