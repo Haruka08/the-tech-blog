@@ -1,27 +1,28 @@
-    <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3">
-        <div class="d-flex justify-content-between card-header navbar">
-            <div>
-                post
-            </div>
-            <div>
-                post
-            </div>
+  <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container">
+    <div class="d-flex justify-content-between card-header navbar blog-title">
+        <div>
+            <a href="/{{{blog.id}}}">{{{blog.title}}}</a>
         </div>
-        <div class="card-body body">
-          <blockquote class="blockquote mb-0">
-            <p>A well-known quote, contained in a blockquote element.</p>
-          </blockquote>
+        <div>
+            {{{blog.user_name}}}    
+            {{{blog.timestamps}}}  
         </div>
     </div>
-
-    <div class="card" >
-        <div class="card-body">
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                <input value={{blog_id}} id="post_id">
-            </div>
-        </div>
+    <div class="card-body body blog-content">
+      <blockquote class="blockquote mb-0">
+        <p>{{{blog.content}}}</p>
+      </blockquote>
     </div>
+  </div>
 
-    {{!-- add submit button and create it into a form--}}
+  <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container">
+    <form class="row g-3">
+      <div class="col-md-12">
+        <label for="inputEmail4" class="form-label">Comment</label>
+        <input type="text" class="form-control" id="inputEmail4">
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-secondary">Submit</button>
+      </div>
+    </form>
+  </div>

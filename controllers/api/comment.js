@@ -18,6 +18,22 @@ const withAuth = require('../../utils/auth');
     }
   });
 
+  // GET a blog
+router.get('/blog', async (req, res) => {
+  try {
+    const blog = await Blog.findOne({
+        where:{
+          blog_id: req.body.blog_id
+        }
+    })
+
+    res.status(200).json(blog)
+  }catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 //UPDATE a blog
 router.put('/update', async (req, res) => {
     try{

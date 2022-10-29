@@ -1,0 +1,17 @@
+{{#each blogs as |blog| }}
+  
+<div class="list-group">
+
+  <a href="/api/blog/all" class="list-group-item list-group-item-secondary" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{{blog.title}}}</h5>
+      <small>{{{blog.createdAt}}} </small>
+    </div>
+  </a>
+
+</div>
+
+{{/each}}
+
+{{!-- <button type="button" class="btn btn-secondary btn-lg" href="/blog" id="new-post">+ New Post</button> --}}
+<a href="/api/blog/new" class="btn btn-secondary btn-lg" id="new-post">+ New Post</a>
