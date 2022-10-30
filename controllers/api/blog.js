@@ -16,22 +16,6 @@ router.post('/new', async (req, res) => {
       res.status(500).json(err);
     }
 });
-  
-// CREATE a new comment - add WithAuth
-// router.post('/comment/:id', async (req, res) => {
-//     try {
-//       const newComment = await Comment.create({
-//           comment: req.body.comment,
-//           blog_id: req.body.blog_id,
-//           user_name: req.session.user_name,
-//       })
-  
-//       res.status(200).json(newComment)
-//     }catch (err) {
-//       console.log(err);
-//       res.status(500).json(err);
-//     }
-// });
 
 //UPDATE a blog
 router.put('/:id', async (req, res) => {
@@ -57,7 +41,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELTE a blog post - add WithAuth
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/delete/:id', withAuth, async (req, res) => {
 try {
     const deleteBlog = await Blog.destroy({
     where: {
@@ -79,33 +63,3 @@ try {
 });
   
   module.exports = router;
-
-
-
-  // // GET blogs posted by a user
-// router.get('/user', async (req, res) => {
-//     try {
-//       const blog = await Blog.findAll({
-//           where:{
-//             user_name: req.session.user_name
-//           }
-//       })
-  
-//       res.status(200).json(blog)
-//     }catch (err) {
-//       console.log(err);
-//       res.status(500).json(err);
-//     }
-// });
-
-// // GET blogs posted by a user
-// router.get('/', async (req, res) => {
-//   try {
-//     const blog = await Blog.findAll()
-
-//     res.status(200).json(blog)
-//   }catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
