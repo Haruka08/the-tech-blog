@@ -3,16 +3,16 @@
   <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container">
     <div class="d-flex justify-content-between card-header navbar blog-title">
         <div>
-            <a href="/{{{blog.id}}}">{{{blog.title}}}</a>
+            <a href="/{{blog.id}}">{{blog.title}}</a>
         </div>
         <div>
-            {{{blog.user_name}}}    
-            {{{blog.createdAt}}}  
+            {{blog.user_name}}    
+            {{blog.createdAt}}  
         </div>
     </div>
     <div class="card-body body blog-content">
       <blockquote class="blockquote mb-0">
-        <p>{{{blog.content}}}</p>
+        <p>{{blog.content}}</p>
       </blockquote>
     </div>
   </div>

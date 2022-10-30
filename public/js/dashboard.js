@@ -1,16 +1,16 @@
 // hides comment forms
-const commentBoxes = document.getElementsByClassName('comment');
+// const commentBoxes = document.getElementsByClassName('comment');
 
-for (const commentBox of commentBoxes) {
-  commentBox.style.display = 'none';
-}
+// for (const commentBox of commentBoxes) {
+//   commentBox.style.display = 'none';
+// }
 
 // hides blog ids
-const blogIds = document.getElementsByClassName('blog-id');
+// const blogIds = document.getElementsByClassName('blog-id');
 
-for (const blogId of blogIds) {
-  blogId.style.display = 'none';
-}
+// for (const blogId of blogIds) {
+//   blogId.style.display = 'none';
+// }
 
 //sends request to controllers 
 const userPost = async (event) => {
@@ -27,48 +27,43 @@ const userPost = async (event) => {
       }
   };
   
-const openComment = async (event) => {
-  event.preventDefault();
+// const openComment = async (event) => {
+//   event.preventDefault();
   
-  const blogId = document.querySelector('.blog-id').value
-  const commentBox = document.querySelector(`#blogId${blogId}`);
+//   const blogId = document.querySelector('.blog-id').value
+//   const commentBox = document.querySelector(`#blogId${blogId}`);
 
-  console.log(blogId)
-  console.log(commentBox)
+//   commentBox.style.display = 'block';
+// }
 
-  commentBox.style.display = 'block';
-}
+// const newComment = async (event) => {
+//   // Stop the browser from submitting the form so we can do so with JavaScript
+//   event.preventDefault();
 
-openComment()
+//   const commentId = document.querySelector('.blog-id').value
+//   const comment = document.querySelector(`#comment${commentId}`).value
 
-const newComment = async (event) => {
-  // Stop the browser from submitting the form so we can do so with JavaScript
-  event.preventDefault();
+//   const response = await fetch('/api/blog/comment/:id', {
+//       method: 'POST',
+//       body: JSON.stringify({ comment }),
+//       headers: { 'Content-Type': 'application/json' },
+//     });
 
-  const commentId = document.querySelector('.blog-id').value
-  const comment = document.querySelector(`#comment${commentId}`).value
-
-  const response = await fetch('/api/blog/comment', {
-      method: 'POST',
-      body: JSON.stringify({ comment }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-  if(response.ok){
-    document.location.replace('/dashboard');
-  } else {
-      alert("New blog post submission failed")
-  }
-};
+//   if(response.ok){
+//     document.location.replace('/dashboard');
+//   } else {
+//       alert("New blog post submission failed")
+//   }
+// };
 
   document
   .querySelector('.dashboard')
   .addEventListener('click', userPost);
 
-  document
-  .querySelector('.open-comment')
-  .addEventListener('click', openComment);
+  // document
+  // .querySelector('.open-comment')
+  // .addEventListener('click', openComment);
 
-  document
-  .querySelector('.comment-form')
-  .addEventListener('submit', newComment);
+  // document
+  // .querySelector('.comment-form')
+  // .addEventListener('submit', newComment);
