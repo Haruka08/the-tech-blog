@@ -5,6 +5,13 @@ for (const commentBox of commentBoxes) {
   commentBox.style.display = 'none';
 }
 
+// hides blog ids
+const blogIds = document.getElementsByClassName('blog-id');
+
+for (const blogId of blogIds) {
+  blogId.style.display = 'none';
+}
+
 //sends request to controllers 
 const userPost = async (event) => {
     event.preventDefault();
@@ -20,27 +27,48 @@ const userPost = async (event) => {
       }
   };
   
-// const newPost = async (event) => {
-//   // Stop the browser from submitting the form so we can do so with JavaScript
-//   event.preventDefault();
+const openComment = async (event) => {
+  event.preventDefault();
+  
+  const blogId = document.querySelector('.blog-id').value
+  const commentBox = document.querySelector(`#blogId${blogId}`);
 
-//   const response = await fetch('/api/blog/new', {
-//       method: 'POST',
-//       body: JSON.stringify({ title, content}),
-//       headers: { 'Content-Type': 'application/json' },
-//     });
+  console.log(blogId)
+  console.log(commentBox)
 
-//   if(response.ok){
-//     document.location.replace('/dashboard');
-//   } else {
-//       alert("New blog post submission failed")
-//   }
-// };
+  commentBox.style.display = 'block';
+}
+
+openComment()
+
+const newComment = async (event) => {
+  // Stop the browser from submitting the form so we can do so with JavaScript
+  event.preventDefault();
+
+  const commentId = document.querySelector('.blog-id').value
+  const comment = document.querySelector(`#comment${commentId}`).value
+
+  const response = await fetch('/api/blog/comment', {
+      method: 'POST',
+      body: JSON.stringify({ comment }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+  if(response.ok){
+    document.location.replace('/dashboard');
+  } else {
+      alert("New blog post submission failed")
+  }
+};
 
   document
   .querySelector('.dashboard')
   .addEventListener('click', userPost);
 
-  // document
-  // .querySelector('#new-post')
-  // .addEventListener('click', newPost);
+  document
+  .querySelector('.open-comment')
+  .addEventListener('click', openComment);
+
+  document
+  .querySelector('.comment-form')
+  .addEventListener('submit', newComment);

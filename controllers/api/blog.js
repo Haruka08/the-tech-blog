@@ -17,6 +17,21 @@ router.post('/new', async (req, res) => {
     }
 });
   
+// CREATE a new comment - add WithAuth
+router.post('/comment', async (req, res) => {
+    try {
+      const newComment = await Comment.create({
+          comment: req.body.comment,
+          user_name: req.session.user_name,
+      })
+  
+      res.status(200).json(newComment)
+    }catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+});
+
 //UPDATE a blog
 router.put('/update', async (req, res) => {
     try{

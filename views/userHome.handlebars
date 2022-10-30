@@ -1,6 +1,6 @@
 {{#each blogs as |blog| }}
   
-{{!-- <div class="list-group">
+<div class="list-group">
 
   <a class="list-group-item list-group-item-secondary open-comment" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
@@ -10,28 +10,9 @@
     </div>
   </a>
 
-</div> --}}
-
-<div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container">
-  <div class="d-flex justify-content-between card-header navbar blog-title">
-      <div>
-          <h5 class="mb-1 blog-id">{{{blog.id}}}</h5>
-          <a href="#" class="open-comment" id="blogId{{{blog.id}}}">{{{blog.title}}}</a>
-      </div>
-      <div>
-          {{{blog.user_name}}}    
-          {{{blog.createdAt}}}  
-      </div>
-  </div>
-  <div class="card-body body blog-content">
-    <blockquote class="blockquote mb-0">
-      <p>{{{blog.content}}}</p>
-    </blockquote>
-  </div>
 </div>
 
-
-{{!-- comment section - display when  --}}
+{{!-- comment section - display when 
 <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container comment" id="comment{{{blog.id}}}">
   <form class="row g-3 comment-form">
     <div class="col-md-12">
@@ -42,8 +23,9 @@
       <button type="submit" class="btn btn-secondary">Submit</button>
     </div>
   </form>
-</div>
+</div> --}}
 
 {{/each}}
 
-
+{{!-- <button type="button" class="btn btn-secondary btn-lg" href="/blog" id="new-post">+ New Post</button> --}}
+<a href="/dashboard/blog/new" class="btn btn-secondary btn-lg">+ New Post</a>

@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
       blog.get({ plain: true })
     );
     // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render('homepage', {
+    res.render('dashboard', {
       blogs,
       login: req.session.loggedIn,
     });
@@ -33,7 +33,7 @@ router.get('/user', async (req, res) => {
       blog.get({ plain: true })
     );
     // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render('dashboard', {
+    res.render('userHome', {
       blogs,
       login: req.session.loggedIn
     });
@@ -55,19 +55,6 @@ router.get('/blog/new', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-router.get('/comment/new', async (req, res) => {
-    try {
-      // Send over the 'loggedIn' session variable to the 'homepage' template
-      res.render('comment',{
-        login: req.session.loggedIn
-      });
-  
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
-  });
   
 
 // router.post('/comment', async (req, res) => {
