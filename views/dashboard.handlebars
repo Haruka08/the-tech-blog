@@ -1,22 +1,10 @@
 {{#each blogs as |blog| }}
-  
-{{!-- <div class="list-group">
-
-  <a class="list-group-item list-group-item-secondary open-comment" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1 blog-id">{{{blog.id}}}</h5>
-      <h5 class="mb-1">{{{blog.title}}}</h5>
-      <small>{{{blog.createdAt}}} </small>
-    </div>
-  </a>
-
-</div> --}}
 
 <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container">
   <div class="d-flex justify-content-between card-header navbar blog-title">
       <div>
           {{!-- <h5 class="mb-1 blog-id">{{{blog.id}}}</h5> --}}
-          <a href="/dashboard/comment/{{blog.id}}">{{blog.title}}</a>
+          <a href="/dashboard/comment/{{blog.id}}" id="{{blog.id}}">{{blog.title}}</a>
       </div>
       <div>
           {{blog.user_name}}    
@@ -30,22 +18,24 @@
   </div>
 </div>
 
-
-{{!-- comment section - display when  --}}
-{{!-- <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container" id="comment{{{blog.id}}}">
-  <form class="row g-3 comment-form">
-    <div class="col-md-12">
-      <label for="inputEmail4" class="form-label">Comment</label>
-      <input type="text" class="form-control" id="inputEmail4">
+{{!-- comment section  --}}
+  <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container">
+    <div class="d-flex justify-content-between card-header navbar blog-title">
+        <div>
+        </div>
+        <div>
+            {{!-- {{blog.Comment.user_name}}    
+            {{blog.Comment.createdAt}}   --}}
+        </div>
     </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-secondary">Submit</button>
+    <div class="card-body body blog-content">
+      <blockquote class="blockquote mb-0">
+        {{!-- <p>{{blog.Comment.comment}}</p> --}}
+      </blockquote>
     </div>
-  </form>
-</div> --}}
+  </div>
 
 {{/each}}
-
 
     <script src="/js/dashboard.js"></script>
 

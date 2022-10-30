@@ -25,5 +25,5 @@ const register = async (event) => {
   };
   
   document
-    .querySelector('.registration-form')
+    .getElementById('register')
     .addEventListener('submit', register);

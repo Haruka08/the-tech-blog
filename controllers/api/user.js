@@ -29,7 +29,7 @@ router.post('/register', async (req, res) => {
       if (!userData) {
         res
           .status(400)
-          .json({ message: 'Incorrect email. Please try again!' });
+          .json({ message: 'Incorrect email or password. Please try again!' });
         return;
       }
   
@@ -38,7 +38,7 @@ router.post('/register', async (req, res) => {
       if (!validPassword) {
         res
           .status(400)
-          .json({ message: 'Incorrect password. Please try again!' });
+          .json({ message: 'Incorrect email or password. Please try again!' });
         return;
       }
   
