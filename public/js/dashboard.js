@@ -1,3 +1,11 @@
+// hides comment forms
+const commentBoxes = document.getElementsByClassName('comment');
+
+for (const commentBox of commentBoxes) {
+  commentBox.style.display = 'none';
+}
+
+//sends request to controllers 
 const userPost = async (event) => {
     event.preventDefault();
 
@@ -33,6 +41,6 @@ const userPost = async (event) => {
   .querySelector('.dashboard')
   .addEventListener('click', userPost);
 
-  document
-  .querySelector('#new-post')
-  .addEventListener('click', newPost);
+  // document
+  // .querySelector('#new-post')
+  // .addEventListener('click', newPost);

@@ -46,7 +46,9 @@ router.get('/user', async (req, res) => {
 router.get('/blog/new', async (req, res) => {
   try {
     // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render('blog');
+    res.render('blog',{
+      login: req.session.loggedIn
+    });
 
   } catch (err) {
     console.log(err);
@@ -57,7 +59,9 @@ router.get('/blog/new', async (req, res) => {
 router.get('/comment/new', async (req, res) => {
     try {
       // Send over the 'loggedIn' session variable to the 'homepage' template
-      res.render('comment');
+      res.render('comment',{
+        login: req.session.loggedIn
+      });
   
     } catch (err) {
       console.log(err);
