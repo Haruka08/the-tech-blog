@@ -59,12 +59,19 @@ router.put('/:id', async (req, res) => {
 // DELTE a blog post - add WithAuth
 router.delete('/:id', withAuth, async (req, res) => {
 try {
-    const deletedBlog = await Blog.destroy({
+    const deleteBlog = await Blog.destroy({
     where: {
         id: req.params.id,
+        user_id: req.session.user_id,
     },
     })
-    res.status(200).json(deletedBlog);
+
+    if (!deleteBlog) {
+        res.status(404).json({ message: 'No blog found with this id!' });
+        return;
+      }
+
+    res.status(200).json(deleteBlog);
 }catch (err) {
     console.log(err);
     res.status(500).json(err);

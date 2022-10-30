@@ -62,13 +62,13 @@ console.log(content)
   };
 
   document
-    .querySelector('#new-blog')
+    .getElementById('new-blog')
     .addEventListener('submit', postBlog);
 
   document
-    .querySelector('#update')
+    .getElementById('update')
     .addEventListener('submit', updateBlog);
-    
+
   document
-    .querySelector('#delete')
+    .getElementById('delete')
     .addEventListener('click', deleteBlog);
