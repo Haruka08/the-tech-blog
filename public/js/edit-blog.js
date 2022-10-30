@@ -27,26 +27,30 @@
     }
   };
 
-//   const deleteBlog = async (event) => {
-//     // Stop the browser from submitting the form so we can do so with JavaScript
-//     event.preventDefault();
+  const deleteBlog = async (event) => {
+    // Stop the browser from submitting the form so we can do so with JavaScript
+    event.preventDefault();
 
-//     const response = await fetch('/api/blog/delete/:id', {
-//         method: 'DELETE',
-//       });
+    const id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+    ];
 
-//     if(response.ok){
-//       document.location.replace('/dashboard');
-//       console.log("Success")
-//     } else {
-//         alert("New blog post submission failed")
-//     }
-//   };
+    const response = await fetch(`/api/blog/${id}`, {
+        method: 'DELETE',
+      });
+
+    if(response.ok){
+      document.location.replace('/dashboard');
+      console.log("Success")
+    } else {
+        alert("New blog post submission failed")
+    }
+  };
 
   document
   .getElementById('update')
   .addEventListener('submit', updateBlog);
 
-// document
-//   .getElementById('delete')
-//   .addEventListener('submit', deleteBlog);
+document
+  .getElementById('delete')
+  .addEventListener('click', deleteBlog);

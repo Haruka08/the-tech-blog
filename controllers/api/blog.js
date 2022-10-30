@@ -41,12 +41,11 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELTE a blog post - add WithAuth
-router.delete('/delete/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
 try {
     const deleteBlog = await Blog.destroy({
     where: {
         id: req.params.id,
-        user_id: req.session.user_id,
     },
     })
 
