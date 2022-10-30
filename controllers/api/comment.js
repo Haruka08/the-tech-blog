@@ -7,7 +7,7 @@ const withAuth = require('../../utils/auth');
     try {
       const newComment = Comment.create({
         comment: req.body.comment,
-        blog_id: req.params.blog_id,
+        // blog_id: parseInt(req.params.blog_id),
         user_name: req.session.user_name,
       })
 

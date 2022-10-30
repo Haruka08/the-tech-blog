@@ -34,7 +34,7 @@ router.post('/new', async (req, res) => {
 // });
 
 //UPDATE a blog
-router.put('/update', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try{
     const updatedBlog = await Blog.update(
         {
@@ -45,7 +45,7 @@ router.put('/update', async (req, res) => {
         {
         // Gets a book based on the book_id given in the request parameters
         where: {
-            blog_id: req.body.blog_id,
+            id: req.params.id,
         },
         }
     );
@@ -57,11 +57,11 @@ router.put('/update', async (req, res) => {
 });
 
 // DELTE a blog post - add WithAuth
-router.delete('/delete', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
 try {
     const deletedBlog = await Blog.destroy({
     where: {
-        blog_id: req.body.blog_id,
+        id: req.params.id,
     },
     })
     res.status(200).json(deletedBlog);

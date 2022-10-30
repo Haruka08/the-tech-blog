@@ -56,6 +56,28 @@ router.get('/blog/new', async (req, res) => {
   }
 });
   
+router.get('/blog/:id', async (req, res) => {
+  try {
+    const blogData = await Blog.findOne({
+        where:{
+          id: req.params.id,
+        }
+    })
+    const blog = blogData.get({ plain: true });
+
+    // Send over the 'loggedIn' session variable to the 'homepage' template
+    
+    res.render('edit-blog',{
+      blog,
+      login: req.session.loggedIn
+    });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.get('/comment/:id', async (req, res) => {
   try {
     const blogData = await Blog.findOne({

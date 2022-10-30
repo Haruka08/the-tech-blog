@@ -1,0 +1,38 @@
+<div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container">
+  <div class="d-flex justify-content-between card-header navbar blog-title" id="{{blog.id}}">
+      <div>
+          {{!-- <h5 class="mb-1 blog-id">{{{blog.id}}}</h5> --}}
+          <a href="#">{{blog.title}}</a>
+      </div>
+      <div>
+          {{blog.user_name}}    
+          {{blog.createdAt}}  
+      </div>
+  </div>
+  <div class="card-body body blog-content">
+    <blockquote class="blockquote mb-0">
+      <p>{{blog.content}}</p>
+    </blockquote>
+  </div>
+</div>
+
+  <div class="card w-75 position-relative top-0 start-50 translate-middle-x mb-3 blog-container">
+    <form class="row g-3" id="update">
+      <div class="col-md-12">
+        <label for="inputEmail4" class="form-label">Title</label>
+        <input type="name" class="form-control" id="update-title" value="{{blog.title}}">
+      </div>
+            <div class="col-md-12">
+        <label for="inputEmail4" class="form-label">New Post</label>
+        <input type="text" class="form-control" id="update-content" value="{{blog.content}}">
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-secondary">Update</button>
+      </div>
+    </form>
+    {{!-- <div class="col-12">
+        <button type="btn" class="btn btn-secondary" id="delete">Delete</button>
+    </div> --}}
+{{!-- 
+    <a href="#" class="btn btn-secondary btn-lg" id="delete">Delete</a> --}}
+  </div>
