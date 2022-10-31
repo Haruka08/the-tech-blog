@@ -4,9 +4,13 @@
 
   <a href="/dashboard/blog/{{blog.id}}" class="list-group-item list-group-item-secondary" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1 blog-id">{{blog.id}}</h5>
-      <h5 class="mb-1">{{blog.title}}</h5>
-      <small>{{blog.createdAt}} </small>
+      <div>
+        {{blog.id}}
+        {{blog.title}}
+      </div>
+      <div>
+        <small>{{format_date blog.createdAt}} </small>
+      </div>
     </div>
   </a>
 

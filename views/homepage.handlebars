@@ -7,7 +7,7 @@
         </div>
         <div>
             {{blog.user_name}}    
-            {{blog.createdAt}}  
+            {{format_date blog.createdAt}}  
         </div>
     </div>
     <div class="card-body body blog-content">
@@ -18,8 +18,3 @@
   </div>
   
 {{/each}}
-
-
-    <script src="/js/login.js"></script>
-    <script src="/js/logout.js"></script>
-    <script src="/js/register.js"></script>

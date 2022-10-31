@@ -8,7 +8,7 @@
       </div>
       <div>
           {{blog.user_name}}    
-          {{blog.createdAt}}  
+          {{format_date blog.createdAt}}  
       </div>
   </div>
   <div class="card-body body blog-content">
@@ -24,13 +24,13 @@
         <div>
         </div>
         <div>
-            {{!-- {{blog.Comment.user_name}}    
-            {{blog.Comment.createdAt}}   --}}
+            {{blog.comment.user_name}}    
+            {{comment.createdAt}}  
         </div>
     </div>
     <div class="card-body body blog-content">
       <blockquote class="blockquote mb-0">
-        {{!-- <p>{{blog.Comment.comment}}</p> --}}
+        <p>{{blog.comment.comment}}</p>
       </blockquote>
     </div>
   </div>

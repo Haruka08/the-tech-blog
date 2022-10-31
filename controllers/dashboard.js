@@ -4,7 +4,14 @@ const { Blog, Comment} = require('../models');
 // GET all blog posts for homepage - Unable to Render
 router.get('/', async (req, res) => {
   try {
-    const blogData = await Blog.findAll();
+    const blogData = await Blog.findAll({
+      // include: [
+      //   {
+      //     model: Comment,
+      //     as: 'comment'
+      //   }
+      // ]
+  });
 
     const blogs = blogData.map((blog) =>
       blog.get({ plain: true })
@@ -28,6 +35,7 @@ router.get('/user', async (req, res) => {
         where:{
           user_name: req.session.user_name
         }
+
     })
 
     const blogs = blogData.map((blog) =>
