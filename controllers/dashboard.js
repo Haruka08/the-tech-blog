@@ -6,9 +6,10 @@ router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
       include:
-        {
-          model: Comment
-        }
+        [{
+          model: Comment,
+          as: 'comment'
+        }]
   });
 
     const blogs = blogData.map((blog) =>

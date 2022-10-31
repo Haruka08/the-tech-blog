@@ -25,11 +25,13 @@ foreignKey: 'user_name',
 // blog to comment relationship
 Blog.hasMany(Comment, {
   foreignKey: 'blog_id',
+  as: 'comment',
   onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(Blog, {
 foreignKey: 'blog_id',
+as: 'blog'
 });
 
 
