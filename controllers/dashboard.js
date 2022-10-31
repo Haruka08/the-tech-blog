@@ -5,12 +5,10 @@ const { Blog, Comment} = require('../models');
 router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
-      // include: [
-      //   {
-      //     model: Comment,
-      //     as: 'comment'
-      //   }
-      // ]
+      include:
+        {
+          model: Comment
+        }
   });
 
     const blogs = blogData.map((blog) =>

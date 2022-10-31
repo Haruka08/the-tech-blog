@@ -5,9 +5,9 @@ const commentBlog = async (event) => {
   const comment = document.querySelector("#comment").value
 //   const blog_id = document.querySelector("#post_id").value
 
-    const response = await fetch('/api/comment/:blog_id', {
+    const response = await fetch('/api/comment/:id', {
         method: 'POST',
-        body: JSON.stringify({ comment}),
+        body: JSON.stringify({ comment }),
         headers: { 'Content-Type': 'application/json' },
       });
 

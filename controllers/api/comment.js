@@ -3,11 +3,11 @@ const { User, Blog, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
   // CREATE a comment - add WithAuth
-  router.post('/:blog_id', async (req, res) => {
+  router.post('/:id', async (req, res) => {
     try {
       const newComment = Comment.create({
         comment: req.body.comment,
-        // blog_id: parseInt(req.params.blog_id),
+        foreignKey: parseInt(req.params.id),
         user_name: req.session.user_name,
       })
 
