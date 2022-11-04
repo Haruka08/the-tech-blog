@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Blog, Comment} = require('../models');
+const withAuth = require("../utils/auth")
+// import withAuth from "../utils/auth";
 
 // GET all blog posts for homepage - Unable to Render
 router.get('/', async (req, res) => {
@@ -28,7 +30,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET blogs posted by a user
-router.get('/user', async (req, res) => {
+router.get('/user', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findAll({
         where:{
@@ -52,7 +54,7 @@ router.get('/user', async (req, res) => {
   }
 });
 
-router.get('/blog/new', async (req, res) => {
+router.get('/blog/new', withAuth, async (req, res) => {
   try {
     // Send over the 'loggedIn' session variable to the 'homepage' template
     res.render('blog',{

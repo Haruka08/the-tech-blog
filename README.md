@@ -3,9 +3,9 @@ A website where a user can publish and post about thoughts and opinions
 
 ## Links to the webpage and repository
 
-To access the website use [Haruka's Portfolio](https://haruka08.github.io/Harukas-Portfolio/)
+To access the website use [The Tech Blog](https://grim-corpse-63523.herokuapp.com/)
 
-To access the GitHub repository use [GitHub Repository Haruka-s-portfolio](https://github.com/Haruka08/Harukas-Portfolio)
+To access the GitHub repository use [GitHub Repository the-tech-blog](https://github.com/Haruka08/the-tech-blog)
 
 ## Content
 
