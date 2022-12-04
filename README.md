@@ -21,3 +21,7 @@ The website consists of following 2 main sections:
     - Edit a blog that the logged in user has created
     - delete a blog that the logged in user has created
     - Options to Logout
+
+## Screenshot of the website
+
+![The screenshot of the completed website](./public/homepage.png)
